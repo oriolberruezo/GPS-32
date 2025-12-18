@@ -23,7 +23,7 @@ jobs:
 
     - name: Run pylint
       run: |
-        pylint *.py || true
+        pylint *.py
 
     - name: Run tests with coverage
       run: |
