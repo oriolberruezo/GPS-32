@@ -1,0 +1,19 @@
+name: Python application CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build the Docker image
+      run: docker build -t el-meu-projecte .
+
+    - name: Run Tests and Coverage inside Docker
+      run: docker run el-meu-projecte
